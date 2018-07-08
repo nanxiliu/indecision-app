@@ -17,28 +17,33 @@ const template = (
         </ol>
     </div>
 );
-const userName = 'Nanxi Liu!';
-const user = {
-    name: 'Nanxi',
-    age: '20',
-    location: 'Seattle'
+
+let count = 0;
+const addOne = () => {
+    console.log('addOne')
 };
 
-function getLocation(location) {
-    if (location) {
-        return <p>Location: {location} </p>;
-    }
+// Challenge
+// Make button "-1" setup minusOne function and register - log "minusOne"
+// Make reset button "reset" - setup reset function - log "reset"
+
+const minusOne = () => {
+    console.log('minusOne')
+};
+
+const reset = () => {
+    console.log('reset')
 }
 
 const templateTwo = (
     <div>
-        <h1>{user.name ? user.name : 'Anonymous'}</h1>
-        {/* <p>Age: {user.age} </p> */}
-        {(user.age && user.age >= 18) && <p>Age: {user.age} </p>}
-        {/* <p>Location: {getLocation(user.location)} </p> */}
-        {getLocation(user.location)}
+        <h1>Count: {count} </h1>
+        <button onClick={addOne}>+1</button>
+        <button onClick={minusOne}>-1</button>
+        <button onClick={reset}>Reset</button>
     </div>
 );
+
 const appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
