@@ -1,8 +1,23 @@
+// Learning about bind
+
+// const obj = {
+//     name: 'Nanxi',
+//     getName() {
+//         return this.name;
+//     }
+// };
+
+// console.log(obj.getName()); // works
+// // const getName = obj.getName; // doesn't work... undefined
+// const getName = obj.getName.bind(obj); // works!
+// // const getName = obj.getName.bind({name: 'Nanxi' }); // can also do this!
+// console.log(getName());
+
 class IndecisionApp extends React.Component {
     render() {
         const title = 'Indecision';
         const subtitle = 'Put your life in the hands of a computer.';
-        const options = [];
+        const options = ['hi', 'oh', 'yo'];
         return (
             <div> 
                 <Header title = {title} subtitle = {subtitle}/>
@@ -40,8 +55,13 @@ class Action extends React.Component {
 }
 
 class Options extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleRemoveAll = this.handleRemoveAll.bind(this);
+    }
+
     handleRemoveAll() {
-        alert('Remove all!');
+        console.log(this.props.options);
     }
     render() {
         return (
