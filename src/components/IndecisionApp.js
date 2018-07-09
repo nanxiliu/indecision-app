@@ -4,17 +4,42 @@ import AddOption from './AddOption';
 import Header from './Header';
 import Options from './Options';
 
+// pull the state out of constructor
+// convert all 4 event handlers to class properties (arrow functions)
+// delete the constructor completely
+// start with class properties and end with method
+
+
 export default class IndecisionApp extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-        this.handlePick = this.handlePick.bind(this);
-        this.handleAddOption = this.handleAddOption.bind(this);
-        this.handleDeleteOption = this.handleDeleteOption.bind(this);
-        this.state = {
-            options: props.options
-        };
-    }
+    state = {
+        options: []
+    };
+
+    handleDeleteOptions = () => {
+        this.setState(() => ({ options: [] }));
+    };
+
+    handleDeleteOption = (optionToRemove) => {
+        this.setState((prevState) => ({
+            options: prevState.options.filter((option) =>optionToRemove !== option)  // filter returns array with just those items... return if it's not the option (aka return everything except the option to delete)
+        }));
+    };
+
+    handlePick = () => {
+        const randomNum = Math.floor(Math.random() * this.state.options.length);
+        const option = this.state.options[randomNum];
+        alert(option);
+    };
+
+    handleAddOption = (option) => {
+        if (!option) { // if option is empty
+            return 'Enter a valid, non-empty value to add an item.';
+        } else if (this.state.options.indexOf(option) > -1) { // index would only be > -1 if it was in array
+            return 'This option already exists.'; 
+        } 
+
+        this.setState((prevState) => ({ options: prevState.options.concat(option)}));
+    };
 
     componentDidMount() {
         try { // try catch statement in case of invalid input / data
@@ -37,32 +62,6 @@ export default class IndecisionApp extends React.Component {
 
     componentWillUnmount() {
         console.log('Component will unmount');
-    }
-
-    handleDeleteOptions() {
-        this.setState(() => ({ options: [] }));
-    }
-
-    handleDeleteOption(optionToRemove) {
-        this.setState((prevState) => ({
-            options: prevState.options.filter((option) =>optionToRemove !== option)  // filter returns array with just those items... return if it's not the option (aka return everything except the option to delete)
-        }));
-    }
-
-    handlePick() {
-        const randomNum = Math.floor(Math.random() * this.state.options.length);
-        const option = this.state.options[randomNum];
-        alert(option);
-    }
-
-    handleAddOption(option) {
-        if (!option) { // if option is empty
-            return 'Enter a valid, non-empty value to add an item.';
-        } else if (this.state.options.indexOf(option) > -1) { // index would only be > -1 if it was in array
-            return 'This option already exists.'; 
-        } 
-
-        this.setState((prevState) => ({ options: prevState.options.concat(option)}));
     }
 
     render() {
