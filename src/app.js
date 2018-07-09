@@ -1,18 +1,3 @@
-// Learning about bind
-
-// const obj = {
-//     name: 'Nanxi',
-//     getName() {
-//         return this.name;
-//     }
-// };
-
-// console.log(obj.getName()); // works
-// // const getName = obj.getName; // doesn't work... undefined
-// const getName = obj.getName.bind(obj); // works!
-// // const getName = obj.getName.bind({name: 'Nanxi' }); // can also do this!
-// console.log(getName());
-
 class IndecisionApp extends React.Component {
     render() {
         const title = 'Indecision';
