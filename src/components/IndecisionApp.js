@@ -4,12 +4,6 @@ import AddOption from './AddOption';
 import Header from './Header';
 import Options from './Options';
 
-// pull the state out of constructor
-// convert all 4 event handlers to class properties (arrow functions)
-// delete the constructor completely
-// start with class properties and end with method
-
-
 export default class IndecisionApp extends React.Component {
     state = {
         options: []
