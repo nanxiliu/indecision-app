@@ -2,6 +2,8 @@
 
 Indecision is a React decision-making web app that helps you make decisions based of off your inputted options! Do you trust a computer to help you make a decision?
 
+![](/public/img/screenshot.png)
+
 ## What I've Learned
 ### Coding
 * ES6/ES7 JavaScript
