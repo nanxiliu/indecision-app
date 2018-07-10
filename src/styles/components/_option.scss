@@ -2,7 +2,7 @@
     border-bottom: .1rem solid lighten($light-blue, 10%);
     display: flex;
     justify-content: space-between;
-    padding: $l-size $m-size;
+    padding: $ml-size $m-size;
 }
 
 .option__text {
@@ -11,4 +11,10 @@
     font-size: 2rem;
     margin: 0;
     word-break: break-all;
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .option {
+        padding: $l-size $m-size;
+    }
 }
