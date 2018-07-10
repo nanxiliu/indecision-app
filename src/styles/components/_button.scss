@@ -1,0 +1,34 @@
+// Big button for "What should I do?"
+.big-button {
+    background: $purple;
+    border: none;
+    border-bottom: .6rem solid darken($purple, 10%); // width, type, color
+    color: white;
+    font-size: $l-size;
+    font-weight: bold;
+    margin-bottom: $xl-size;
+    padding: 2.4rem;
+    width: 100%;
+}
+
+.big-button:disabled {
+    opacity: 50%;
+}
+
+// Add option button
+.button {
+    background: $purple;
+    border: none;
+    border-bottom: .3rem solid darken($purple, 10%);
+    color: white;
+    font-weight: 500;
+    padding: $s-size;
+}
+
+// Tweaked version of button for remove buttons - BEM naming
+.button--link {
+    background: none;
+    border: none;
+    color: $off-white;
+    padding: 0;
+}
